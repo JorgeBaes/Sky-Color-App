@@ -2,6 +2,7 @@ var birthday = new Date("September 28, 2001 03:24:00")
 var today = new Date("March 28, 2001 03:24:00")
 var times = SunCalc.getTimes(today, -22.0154, -47.891122);
 
+console.log(times)
 
 console.log(backToHoursMinutes(dateToMinutes(times.sunset)/2 + dateToMinutes(times.sunsetStart)/2))
 
@@ -142,20 +143,20 @@ console.log()
 
 // const collorsArray = arr.map(el => `${el.color_up} ${el.time/1440*100}%`).join(',')
 
-// document.querySelector('#top').style.background = `linear-gradient(to right, ${listColors.map(el => `${el.color_up} ${el.time / 1440 * 100}%`).join(',')})`
-// document.querySelector('#mid').style.background = `linear-gradient(to right, ${arr.map(el => `${el.color_top} ${el.time / 1440 * 100}%`).join(',')})`
-// document.querySelector('#bot').style.background = `linear-gradient(to right, ${arr.map(el => `${el.color_base} ${el.time / 1440 * 100}%`).join(',')})`
+document.querySelector('#top').style.background = `linear-gradient(to right, ${arr.map(el => `${el.color_up} ${el.time / 1440 * 100}%`).join(',')})`
+document.querySelector('#mid').style.background = `linear-gradient(to right, ${arr.map(el => `${el.color_top} ${el.time / 1440 * 100}%`).join(',')})`
+document.querySelector('#bot').style.background = `linear-gradient(to right, ${arr.map(el => `${el.color_base} ${el.time / 1440 * 100}%`).join(',')})`
 
 
-arr.forEach(( el , index , array) => {
-    if(index == array.length-1){
-        document.querySelector('#flexu').innerHTML +=
-            `<div  style=" background-image: linear-gradient(to bottom,${el.color_top},${el.color_top},${el.color_base}); width: ${1/ 1440 * 100}%; height: 100%; position: fixed; left: ${el.time / 1440 * 100}%;"></div>`
-    }else{
-        document.querySelector('#flexu').innerHTML +=
-            `<div style=" background-image: linear-gradient(to bottom,${el.color_top},${el.color_top},${el.color_base}); width: ${array[index + 1].time / 1440 * 100 - el.time / 1440 * 100}%; height: 100%; position: fixed; left: ${el.time / 1440 * 100}%;"></div>`
-    }
-})
+// arr.forEach(( el , index , array) => {
+//     if(index == array.length-1){
+//         document.querySelector('#flexu').innerHTML +=
+//             `<div  style=" background-image: linear-gradient(to bottom,${el.color_top},${el.color_top},${el.color_base}); width: ${1/ 1440 * 100}%; height: 100%; position: fixed; left: ${el.time / 1440 * 100}%;"></div>`
+//     }else{
+//         document.querySelector('#flexu').innerHTML +=
+//             `<div style=" background-image: linear-gradient(to bottom,${el.color_top},${el.color_top},${el.color_base}); width: ${array[index + 1].time / 1440 * 100 - el.time / 1440 * 100}%; height: 100%; position: fixed; left: ${el.time / 1440 * 100}%;"></div>`
+//     }
+// })
 
 
 // listColors.forEach((el, index, array) => {
