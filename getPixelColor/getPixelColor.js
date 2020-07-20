@@ -8,6 +8,15 @@ Eu ainda quero melhorar isso, quero ver se da pra fazer com async func q é um r
 que permite q vc possa fazer funções assincronas de um jeito melhor.
 */
 
+function decToHex(n) {
+    var hexN = n.toString(16)
+    if (hexN.length == 1) {
+        hexN = '0' + hexN
+    }
+    return hexN
+}
+
+
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth
@@ -17,6 +26,7 @@ const x = 1
 const y = 1
 
 var color = document.querySelector('#color');
+var textColor = document.querySelector('#textColor')
 function pick(event) {
     var x_ = event.layerX;
     var y_ = event.layerY;
@@ -25,8 +35,10 @@ function pick(event) {
     var data = pixel.data;
     var rgba = 'rgba(' + data[0] + ', ' + data[1] +
     ', ' + data[2] + ', ' + (data[3] / 255) + ')';
-    console.log(rgba)
-    color.style.background = rgba    
+    var hex = `#${decToHex(data[0])}${decToHex(data[1])}${decToHex(data[2])}`
+    console.log(hex)
+    color.value = hex
+    textColor.innerText = hex+'      |      '+rgba
 }
 
 canvas.addEventListener('click', pick);
@@ -99,6 +111,7 @@ getAllImagesPixel('im','jpeg',1,3,[
     { x: 102, y: 102 },    
     { x: 104, y: 103 }
 ], false,true)
+
 
 
 
